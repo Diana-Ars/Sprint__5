@@ -17,7 +17,7 @@ class TestSuccessRegistration:
         WebDriverWait(driver, 7).until(EC.element_to_be_clickable(Locators.REGISTER_BUTTON)).click()
         current_url = driver.current_url
         assert current_url == main_site + 'register'
-        driver.quit()
+
 
 class TestFailedRegistration:
 
@@ -30,9 +30,9 @@ class TestFailedRegistration:
         current_url = driver.current_url
         WebDriverWait(driver, 7).until(EC.element_to_be_clickable(Locators.REGISTER_BUTTON)).click()
         error_text = WebDriverWait(driver, 10).until(EC.visibility_of_element_located(Locators. ERROR_MESSAGE_PASSWORD)).text
-        assert error_text == 'Некорректный пароль'
+        assert error_text == Fixed.error_message_wrong_password
         assert driver.current_url == current_url
-        driver.quit()
+
 
     def test_failed_registration_by_empty_name(self, driver):
         WebDriverWait(driver, 7).until(EC.element_to_be_clickable(Locators.ENTER_TO_ACC)).click()
@@ -43,7 +43,7 @@ class TestFailedRegistration:
         current_url = driver.current_url
         WebDriverWait(driver, 7).until(EC.element_to_be_clickable(Locators.REGISTER_BUTTON)).click()
         assert driver.current_url == current_url
-        driver.quit()
+
 
     def test_failed_registration_by_email_without_at_sign(self, driver):
         WebDriverWait(driver, 7).until(EC.element_to_be_clickable(Locators.ENTER_TO_ACC)).click()
@@ -54,4 +54,4 @@ class TestFailedRegistration:
         current_url = driver.current_url
         WebDriverWait(driver, 7).until(EC.element_to_be_clickable(Locators.REGISTER_BUTTON)).click()
         assert driver.current_url == current_url
-        driver.quit()
+

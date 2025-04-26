@@ -27,8 +27,8 @@ def registration(driver):
     driver.find_element(*Locators.EMAIL).send_keys(email)
     driver.find_element(*Locators.PASSWORD).send_keys(password)
     driver.find_element(*Locators.REGISTER_BUTTON).click()
-
     yield driver
+    driver.quit()
 
 
 @pytest.fixture()
@@ -45,7 +45,7 @@ def login(driver):
     driver.find_element(*Locators.EMAIL).send_keys(email)
     driver.find_element(*Locators.PASSWORD).send_keys(password)
     WebDriverWait(driver, 5).until(EC.element_to_be_clickable(Locators.ENTER_BUTTON)).click()
-
     yield driver
+    driver.quit()
 
 

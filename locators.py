@@ -15,6 +15,9 @@ class Locators:
     PERSONAL_ACC_BUTTON = By.XPATH, '//p[contains(text(), "Личный Кабинет")]' #Кнопка для входа в Личный Кабинет
     ENTER_IN_REG_FORM = By.XPATH, '//a[contains(text(), "Войти")]' #Кнопка "Войти" в форме регистрации
     RECOVER_PASSWORD = By.XPATH, '//a[contains(text(), "Восстановить пароль")]' #Кнопка "Восстановить пароль" в форме авторизации
+    PROFILE_TEXT = By.XPATH, '//a[contains(text(), "Профиль")]' #Ссылка, отображающаяся на странице Личного кабинета
+    CONSTRUCTOR_TEXT = By.XPATH, '//h1[contains(text(), "Соберите бургер")]' #Заголовок, отображающийся на странице Конструктора бургеров
+    ENTER_TEXT = By.XPATH, '//h2[contains(text(), "Вход")]' #Заголовок, отображающийся на странице авторизации
 
     #Локаторы для конструктора
     ENTER_CONSTRUCTOR = By.XPATH, '//p[contains(text(), "Конструктор")]' #Кнопка "Конструктор" в шапке сайта

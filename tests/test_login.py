@@ -1,4 +1,3 @@
-import requests
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from helpers import generate_registration_data
@@ -14,9 +13,9 @@ class TestLogin:
         registration.find_element(*Locators.EMAIL).send_keys(email)
         registration.find_element(*Locators.PASSWORD).send_keys(password)
         WebDriverWait(registration, 5).until(EC.element_to_be_clickable(Locators.ENTER_BUTTON)).click()
-        response = requests.get(login_api_url)
-        assert response.status_code == 200
-        registration.quit()
+        current_url = registration.current_url
+        assert current_url == main_site + 'login'
+
 
     def test_login_by_personal_acc(self, registration):
         registration.get(main_site)
@@ -25,9 +24,9 @@ class TestLogin:
         registration.find_element(*Locators.EMAIL).send_keys(email)
         registration.find_element(*Locators.PASSWORD).send_keys(password)
         WebDriverWait(registration, 5).until(EC.element_to_be_clickable(Locators.ENTER_BUTTON)).click()
-        response = requests.get(login_api_url)
-        assert response.status_code == 200
-        registration.quit()
+        current_url = registration.current_url
+        assert current_url == main_site + 'login'
+
 
     def test_login_from_registration_form(self, registration):
         registration.get(main_site)
@@ -38,9 +37,9 @@ class TestLogin:
         registration.find_element(*Locators.EMAIL).send_keys(email)
         registration.find_element(*Locators.PASSWORD).send_keys(password)
         WebDriverWait(registration, 5).until(EC.element_to_be_clickable(Locators.ENTER_BUTTON)).click()
-        response = requests.get(login_api_url)
-        assert response.status_code == 200
-        registration.quit()
+        current_url = registration.current_url
+        assert current_url == main_site + 'login'
+
 
     def test_login_from_recover_password(self, registration):
         registration.get(main_site)
@@ -51,7 +50,7 @@ class TestLogin:
         registration.find_element(*Locators.EMAIL).send_keys(email)
         registration.find_element(*Locators.PASSWORD).send_keys(password)
         WebDriverWait(registration, 7).until(EC.element_to_be_clickable(Locators.ENTER_BUTTON)).click()
-        response = requests.get(login_api_url)
-        assert response.status_code == 200
-        registration.quit()
+        current_url = registration.current_url
+        assert current_url == main_site + 'login'
+
 
